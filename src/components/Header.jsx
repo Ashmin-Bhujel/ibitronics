@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <>
       <nav>
-        <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-[1600px] px-2 sm:px-6 lg:px-8">
           <div className="flex h-20 items-center justify-between">
             <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
               {/* Logo */}
@@ -19,7 +19,7 @@ export default function Header() {
 
               {/* Navigation */}
               <div className="md:ml-auto">
-                <div className="flex space-x-2">
+                <div className="flex space-x-4 text-lg">
                   <a
                     href="/"
                     className="text-dark hover:text-primary px-3 py-2"

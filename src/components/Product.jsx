@@ -1,7 +1,12 @@
+import { useState } from "react";
 import PropTypes from "prop-types";
 import { FaCartShopping } from "react-icons/fa6";
 
 export default function Product({ product }) {
+  const [isShowMore, setIsShowMore] = useState(false);
+
+  const shortDescription = product.description.substring(0, 100) + "...";
+
   return (
     <>
       <div className="bg-light rounded-xl shadow-md relative">
@@ -11,14 +16,24 @@ export default function Product({ product }) {
             <div className="flex items-center justify-center h-[400px] bg-darkMid/20 mt-4 mb-8 rounded-lg">
               <span>Placeholder Image</span>
             </div>
-            <h3 className="font-barlow font-semibold text-xl">
+            <h3 className="font-gilroy font-semibold text-xl">
               {product.name}
             </h3>
           </div>
 
-          <div className="mb-5">{product.description}</div>
+          <div className="mb-2">
+            {isShowMore ? product.description : shortDescription}
+          </div>
+          <button
+            onClick={() => {
+              setIsShowMore((currentState) => !currentState);
+            }}
+            className="mb-2"
+          >
+            Show {isShowMore ? "Less" : "More"}
+          </button>
 
-          <h3 className="text-darkMid mb-2">${product.price}K</h3>
+          <h3 className="text-darkMid mb-2">${product.price}</h3>
 
           <div className="border border-darkMid/10 mb-5"></div>
 
