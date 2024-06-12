@@ -10,7 +10,7 @@ export default function Header() {
                 className="flex flex-shrink-0 items-center mr-4"
                 href="/index.html"
               >
-                <span className="hidden md:block text-dark text-2xl font-bold ml-2">
+                <span className="hidden md:block text-dark text-3xl font-barlow ml-2">
                   iBitronics
                 </span>
               </a>

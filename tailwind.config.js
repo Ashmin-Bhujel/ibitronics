@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         poppins: ["poppins", "sans-serif"],
+        barlow: ["barlow", "sans-serif"],
       },
       colors: {
         primary: "#ff8104",
