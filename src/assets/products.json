@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "category": "iPhone",
+    "image": "",
+    "name": "iPhone 13 Max Pro",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque velit natus ipsum, ut, quo numquam est voluptatem sit eum rerum neque ad assumenda, magnam officia quod doloremque. Qui sapiente id velit sed dolor soluta quia itaque dolores facere veniam illum porro magni numquam, earum officiis. Incidunt libero iure deserunt placeat.",
+    "price": 150,
+    "stockAvailibilty": "In Stock"
+  },
+  {
+    "id": 2,
+    "category": "MacBook",
+    "image": "",
+    "name": "MacBook M2 Pro",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque velit natus ipsum, ut, quo numquam est voluptatem sit eum rerum neque ad assumenda, magnam officia quod doloremque. Qui sapiente id velit sed dolor soluta quia itaque dolores facere veniam illum porro magni numquam, earum officiis. Incidunt libero iure deserunt placeat.",
+    "price": 325,
+    "stockAvailibilty": "In Stock"
+  },
+  {
+    "id": 3,
+    "category": "MacBook",
+    "image": "",
+    "name": "MacBook M1 Air",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque velit natus ipsum, ut, quo numquam est voluptatem sit eum rerum neque ad assumenda, magnam officia quod doloremque. Qui sapiente id velit sed dolor soluta quia itaque dolores facere veniam illum porro magni numquam, earum officiis. Incidunt libero iure deserunt placeat.",
+    "price": 250,
+    "stockAvailibilty": "Out of Stock"
+  }
+]

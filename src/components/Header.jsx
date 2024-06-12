@@ -1,3 +1,5 @@
+import { FaApple } from "react-icons/fa6";
+
 export default function Header() {
   return (
     <>
@@ -6,12 +8,12 @@ export default function Header() {
           <div className="flex h-20 items-center justify-between">
             <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
               {/* Logo */}
-              <a
-                className="flex flex-shrink-0 items-center mr-4"
-                href="/index.html"
-              >
+              <a className="flex flex-shrink-0 items-center mr-4" href="/">
                 <span className="hidden md:block text-dark text-3xl font-barlow ml-2">
-                  iBitronics
+                  <div className="flex items-center gap-2">
+                    <FaApple />
+                    iBitronics
+                  </div>
                 </span>
               </a>
 
@@ -19,25 +21,25 @@ export default function Header() {
               <div className="md:ml-auto">
                 <div className="flex space-x-2">
                   <a
-                    href="/index.html"
+                    href="/"
                     className="text-dark hover:text-primary px-3 py-2"
                   >
                     Home
                   </a>
                   <a
-                    href="/jobs.html"
+                    href="/"
                     className="text-dark hover:text-primary px-3 py-2"
                   >
                     Products
                   </a>
                   <a
-                    href="/add-job.html"
+                    href="/"
                     className="text-dark hover:text-primary px-3 py-2"
                   >
                     Add Products
                   </a>
                   <a
-                    href="/add-job.html"
+                    href="/"
                     className="text-dark hover:text-primary px-3 py-2"
                   >
                     Contact Us
