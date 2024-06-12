@@ -25,7 +25,7 @@ export default function Product({ product }) {
           <div className="flex flex-col lg:flex-row justify-between mb-4">
             <div className="text-primary mb-3">{product.stockAvailibilty}</div>
             <a
-              href="job.html"
+              href="/"
               className="h-[36px] bg-dark hover:text-primary text-light px-4 py-2 rounded-lg text-center text-sm"
             >
               <div className="flex items-center gap-2">

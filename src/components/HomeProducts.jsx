@@ -19,7 +19,7 @@ export default function HomeProducts() {
 
       <section className="m-auto max-w-lg my-10 px-6">
         <a
-          href="products.html"
+          href="/"
           className="block bg-dark text-light text-center py-4 px-6 rounded-xl hover:text-primary"
         >
           View All Products
