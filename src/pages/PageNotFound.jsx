@@ -8,9 +8,14 @@ export default function PageNotFound() {
 
       <p className="my-8 text-5xl font-bold font-gilroy">404 Page not found!</p>
 
-      <Link to="/" className="text-xl cursor-pointer hover:text-primary">
-        Go Back to Homepage
-      </Link>
+      <section className="max-w-lg px-6 m-auto my-2">
+        <Link
+          to="/"
+          className="block px-6 py-4 text-center bg-dark text-light rounded-xl hover:bg-dark/90"
+        >
+          Go Back to Homepage
+        </Link>
+      </section>
     </div>
   );
 }
