@@ -25,7 +25,7 @@ export default function Product({ product }) {
         <div className="mb-5 border border-darkMid/10"></div>
 
         <div className="flex flex-col justify-between mb-4 lg:flex-row">
-          <div className="mb-3 text-primary">{product.stockAvailibilty}</div>
+          <div className="mb-3 text-primary">{product.stockAvailibility}</div>
 
           <Link
             to={`/products/${product.id}`}
@@ -48,11 +48,11 @@ export default function Product({ product }) {
 
 Product.propTypes = {
   product: PropTypes.shape({
-    id: PropTypes.any,
+    id: PropTypes.string,
     category: PropTypes.string,
     image: PropTypes.string,
     name: PropTypes.string,
     price: PropTypes.number,
-    stockAvailibilty: PropTypes.string,
+    stockAvailibility: PropTypes.string,
   }),
 };

@@ -19,9 +19,13 @@ export default function Contact() {
         </h2>
 
         <p className="mb-8 text-xl text-center text-dark">
-          {isSubmited
-            ? "Form submitted successfully"
-            : "Please fill up the form below"}
+          {isSubmited ? (
+            <span className="text-primary font-semibold">
+              Form submitted successfully
+            </span>
+          ) : (
+            "Please fill up the form below"
+          )}
         </p>
 
         <form
@@ -29,7 +33,6 @@ export default function Contact() {
           onSubmit={(e) => {
             e.preventDefault();
             setIsSubmitted(true);
-            console.log(formData);
           }}
         >
           <div className="flex max-md:flex-col w-full gap-4">

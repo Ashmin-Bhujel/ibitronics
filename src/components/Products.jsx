@@ -12,8 +12,10 @@ export default function Products({ isHomePage = false }) {
     const controller = new AbortController();
 
     async function fetchProducts() {
+      const apiURL = isHomePage ? "/api/products?_limit=3" : "/api/products";
+
       try {
-        const response = await fetch("http://localhost:5000/products", {
+        const response = await fetch(apiURL, {
           signal: controller.signal,
         });
 
@@ -33,7 +35,7 @@ export default function Products({ isHomePage = false }) {
       controller.abort();
       setIsLoading(false);
     };
-  }, []);
+  }, [isHomePage]);
 
   let totalProducts = isHomePage ? products.slice(0, 3) : products;
 
@@ -49,7 +51,7 @@ export default function Products({ isHomePage = false }) {
 
   return (
     <>
-      <section className="px-4 py-16">
+      <section className="min-h-screen px-4 py-16">
         <div className="m-auto container-xl lg:container">
           <h2 className="mb-10 text-3xl font-bold text-center text-dark">
             {isHomePage ? "Some Recent Products" : "Browse Products"}
@@ -122,9 +124,9 @@ export default function Products({ isHomePage = false }) {
             </div>
           )}
         </div>
-      </section>
 
-      {isHomePage && <ViewAll />}
+        {isHomePage && <ViewAll />}
+      </section>
     </>
   );
 }
