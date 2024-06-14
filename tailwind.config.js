@@ -5,7 +5,7 @@ export default {
     extend: {
       fontFamily: {
         poppins: ["poppins", "sans-serif"],
-        gilroy: ["gilroy-bold", "monospace"],
+        gilroy: ["gilroy-bold", "sans-serif"],
       },
       colors: {
         primary: "#ff8104",

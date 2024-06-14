@@ -1,57 +1,58 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { FaCartShopping } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 export default function Product({ product }) {
-  const [isShowMore, setIsShowMore] = useState(false);
+  const [showMore, setShowMore] = useState(false);
 
   const shortDescription = product.description.substring(0, 100) + "...";
 
   return (
-    <>
-      <div className="bg-light rounded-xl shadow-md relative">
-        <div className="p-6">
-          <div className="mb-6">
-            <div className="text-darkMid my-2">{product.category}</div>
-            <div className="flex items-center justify-center h-[400px] bg-darkMid/20 mt-4 mb-8 rounded-lg">
-              <span>Placeholder Image</span>
-            </div>
-            <h3 className="font-gilroy font-semibold text-xl">
-              {product.name}
-            </h3>
+    <div className="relative shadow-md bg-light rounded-xl">
+      <div className="p-6">
+        <div className="mb-6">
+          <div className="my-2 text-darkMid">{product.category}</div>
+
+          <div className="flex items-center justify-center h-[400px] bg-darkMid/20 mt-4 mb-8 rounded-lg">
+            <span>Placeholder Image</span>
           </div>
 
-          <div className="mb-2">
-            {isShowMore ? product.description : shortDescription}
-          </div>
-          <button
-            onClick={() => {
-              setIsShowMore((currentState) => !currentState);
-            }}
-            className="mb-2"
+          <h3 className="text-xl font-semibold font-gilroy">{product.name}</h3>
+        </div>
+
+        <div className="mb-2">
+          {showMore ? product.description : shortDescription}
+        </div>
+
+        <button
+          onClick={() => {
+            setShowMore((currentState) => !currentState);
+          }}
+          className="mb-2"
+        >
+          Show {showMore ? "Less" : "More"}
+        </button>
+
+        <h3 className="mb-2 text-darkMid">${product.price}</h3>
+
+        <div className="mb-5 border border-darkMid/10"></div>
+
+        <div className="flex flex-col justify-between mb-4 lg:flex-row">
+          <div className="mb-3 text-primary">{product.stockAvailibilty}</div>
+
+          <Link
+            to="/products"
+            className="h-[36px] bg-dark hover:bg-dark/85 text-light px-4 py-2 rounded-lg text-center text-sm"
           >
-            Show {isShowMore ? "Less" : "More"}
-          </button>
-
-          <h3 className="text-darkMid mb-2">${product.price}</h3>
-
-          <div className="border border-darkMid/10 mb-5"></div>
-
-          <div className="flex flex-col lg:flex-row justify-between mb-4">
-            <div className="text-primary mb-3">{product.stockAvailibilty}</div>
-            <a
-              href="/"
-              className="h-[36px] bg-dark hover:text-primary text-light px-4 py-2 rounded-lg text-center text-sm"
-            >
-              <div className="flex items-center gap-2">
-                <FaCartShopping />
-                Shop Now
-              </div>
-            </a>
-          </div>
+            <div className="flex items-center gap-2">
+              <FaCartShopping />
+              Shop Now
+            </div>
+          </Link>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
