@@ -1,24 +1,126 @@
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import products from "../assets/products.json";
 import Product from "../components/Product";
 import ViewAll from "./ViewAll";
 
 export default function Products({ isHomePage = false }) {
-  const totalProducts = isHomePage ? products.slice(0, 6) : products;
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [category, setCategory] = useState("all");
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    async function fetchProducts() {
+      try {
+        const response = await fetch("http://localhost:5000/products", {
+          signal: controller.signal,
+        });
+
+        const data = await response.json();
+
+        setProducts(data);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    fetchProducts();
+
+    return () => {
+      controller.abort();
+      setIsLoading(false);
+    };
+  }, []);
+
+  let totalProducts = isHomePage ? products.slice(0, 3) : products;
+
+  {
+    if (!isHomePage && category === "all") {
+      totalProducts;
+    } else if (!isHomePage) {
+      totalProducts = totalProducts.filter(
+        (product) => product.category === category
+      );
+    }
+  }
 
   return (
     <>
-      <section className="min-h-screen px-4 py-10">
+      <section className="px-4 py-16">
         <div className="m-auto container-xl lg:container">
           <h2 className="mb-10 text-3xl font-bold text-center text-dark">
-            Browse Products
+            {isHomePage ? "Some Recent Products" : "Browse Products"}
           </h2>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {totalProducts.map((product) => (
-              <Product key={product.id} product={product} />
-            ))}
-          </div>
+          {!isHomePage && (
+            <div className="text-dark text-xl my-12 mx-auto">
+              <ul className="flex flex-wrap max-md:flex-col items-center justify-center gap-12">
+                <li>
+                  <button
+                    className="hover:text-primary"
+                    onClick={() => {
+                      setCategory("all");
+                    }}
+                  >
+                    All
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className="hover:text-primary"
+                    onClick={() => {
+                      setCategory("MacBook");
+                    }}
+                  >
+                    MacBook
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className="hover:text-primary"
+                    onClick={() => {
+                      setCategory("iPhone");
+                    }}
+                  >
+                    iPhone
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className="hover:text-primary"
+                    onClick={() => {
+                      setCategory("Apple Watch");
+                    }}
+                  >
+                    Apple Watch
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className="hover:text-primary"
+                    onClick={() => {
+                      setCategory("iPad");
+                    }}
+                  >
+                    iPad
+                  </button>
+                </li>
+              </ul>
+            </div>
+          )}
+
+          {isLoading ? (
+            <h2 className="text-4xl text-center">Loading Data</h2>
+          ) : (
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+              {totalProducts.map((product) => (
+                <Product key={product.id} product={product} />
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -28,5 +130,5 @@ export default function Products({ isHomePage = false }) {
 }
 
 Products.propTypes = {
-  isHomePage: PropTypes.bool.isRequired,
+  isHomePage: PropTypes.bool,
 };

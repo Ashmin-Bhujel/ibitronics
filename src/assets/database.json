@@ -1,0 +1,214 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "category": "MacBook",
+      "image": "./src/assets/images/products/macbook-air-m1.jpg",
+      "name": "MacBook Air M1",
+      "specs": {
+        "storage": 0,
+        "display": 0,
+        "chip": "",
+        "batery": 0,
+        "os": ""
+      },
+      "price": 119900,
+      "stockAvailibilty": "In Stock"
+    },
+    {
+      "id": 2,
+      "category": "MacBook",
+      "image": "./src/assets/images/products/macbook-air-m2.jpg",
+      "name": "MacBook Air M2",
+      "specs": {
+        "storage": 0,
+        "display": 0,
+        "chip": "",
+        "batery": 0,
+        "os": ""
+      },
+      "price": 155000,
+      "stockAvailibilty": "In Stock"
+    },
+    {
+      "id": 3,
+      "category": "MacBook",
+      "image": "./src/assets/images/products/macbook-air-m3.jpg",
+      "name": "MacBook Air M3",
+      "specs": {
+        "storage": 0,
+        "display": 0,
+        "chip": "",
+        "batery": 0,
+        "os": ""
+      },
+      "price": 184900,
+      "stockAvailibilty": "Out of Stock"
+    },
+    {
+      "id": 4,
+      "category": "MacBook",
+      "image": "./src/assets/images/products/macbook-pro-m3.jpg",
+      "name": "MacBook Pro M3",
+      "specs": {
+        "storage": 0,
+        "display": 0,
+        "chip": "",
+        "batery": 0,
+        "os": ""
+      },
+      "price": 259000,
+      "stockAvailibilty": "Out of Stock"
+    },
+    {
+      "id": 5,
+      "category": "MacBook",
+      "image": "./src/assets/images/products/macbook-pro-m2.jpg",
+      "name": "MacBook Pro M2",
+      "specs": {
+        "storage": 0,
+        "display": 0,
+        "chip": "",
+        "batery": 0,
+        "os": ""
+      },
+      "price": 295000,
+      "stockAvailibilty": "In Stock"
+    },
+    {
+      "id": 6,
+      "category": "iPhone",
+      "image": "./src/assets/images/products/iphone-11.jpg",
+      "name": "iPhone 11",
+      "specs": {
+        "storage": 0,
+        "display": 0,
+        "chip": "",
+        "batery": 0,
+        "os": ""
+      },
+      "price": 69000,
+      "stockAvailibilty": "In Stock"
+    },
+    {
+      "id": 7,
+      "category": "iPhone",
+      "image": "./src/assets/images/products/iphone-12.jpg",
+      "name": "iPhone 12",
+      "specs": {
+        "storage": 0,
+        "display": 0,
+        "chip": "",
+        "batery": 0,
+        "os": ""
+      },
+      "price": 85100,
+      "stockAvailibilty": "In Stock"
+    },
+    {
+      "id": 8,
+      "category": "iPhone",
+      "image": "./src/assets/images/products/iphone-13.jpg",
+      "name": "iPhone 13",
+      "specs": {
+        "storage": 0,
+        "display": 0,
+        "chip": "",
+        "batery": 0,
+        "os": ""
+      },
+      "price": 95000,
+      "stockAvailibilty": "In Stock"
+    },
+    {
+      "id": 9,
+      "category": "iPhone",
+      "image": "./src/assets/images/products/iphone-14.jpg",
+      "name": "iPhone 14",
+      "specs": {
+        "storage": 0,
+        "display": 0,
+        "chip": "",
+        "batery": 0,
+        "os": ""
+      },
+      "price": 114000,
+      "stockAvailibilty": "In Stock"
+    },
+    {
+      "id": 10,
+      "category": "iPhone",
+      "image": "./src/assets/images/products/iphone-14-pro.jpg",
+      "name": "iPhone 14 Pro",
+      "specs": {
+        "storage": 0,
+        "display": 0,
+        "chip": "",
+        "batery": 0,
+        "os": ""
+      },
+      "price": 122000,
+      "stockAvailibilty": "In Stock"
+    },
+    {
+      "id": 11,
+      "category": "iPhone",
+      "image": "./src/assets/images/products/iphone-15.jpg",
+      "name": "iPhone 15",
+      "specs": {
+        "storage": 0,
+        "display": 0,
+        "chip": "",
+        "batery": 0,
+        "os": ""
+      },
+      "price": 135200,
+      "stockAvailibilty": "In Stock"
+    },
+    {
+      "id": 12,
+      "category": "iPad",
+      "image": "./src/assets/images/products/iPad.jpg",
+      "name": "iPad Pro",
+      "specs": {
+        "storage": 0,
+        "display": 0,
+        "chip": "",
+        "batery": 0,
+        "os": ""
+      },
+      "price": 260000,
+      "stockAvailibilty": "In Stock"
+    },
+    {
+      "id": 13,
+      "category": "Apple Watch",
+      "image": "./src/assets/images/products/watch-ultra-2.jpg",
+      "name": "Apple Watch Ultra 2",
+      "specs": {
+        "storage": 0,
+        "display": 0,
+        "chip": "",
+        "batery": 0,
+        "os": ""
+      },
+      "price": 148000,
+      "stockAvailibilty": "In Stock"
+    },
+    {
+      "id": 14,
+      "category": "Apple Watch",
+      "image": "./src/assets/images/products/watch-se.jpg",
+      "name": "Apple Watch SE",
+      "specs": {
+        "storage": 0,
+        "display": 0,
+        "chip": "",
+        "batery": 0,
+        "os": ""
+      },
+      "price": 49000,
+      "stockAvailibilty": "In Stock"
+    }
+  ]
+}

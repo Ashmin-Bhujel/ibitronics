@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 
 export default function PageNotFound() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
+    <div className="flex flex-col items-center justify-center min-h-[90vh]">
       <FaTriangleExclamation className="text-9xl text-primary" />
 
-      <p className="my-8 text-5xl font-bold font-gilroy">404 Page not found!</p>
+      <p className="my-8 text-5xl max-md:text-3xl font-bold font-gilroy">
+        404 Page not found!
+      </p>
 
       <section className="max-w-lg px-6 m-auto my-2">
         <Link

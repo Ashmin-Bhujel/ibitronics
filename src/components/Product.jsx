@@ -1,40 +1,26 @@
-import { useState } from "react";
 import PropTypes from "prop-types";
 import { FaCartShopping } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 export default function Product({ product }) {
-  const [showMore, setShowMore] = useState(false);
-
-  const shortDescription = product.description.substring(0, 100) + "...";
-
   return (
     <div className="relative shadow-md bg-light rounded-xl">
       <div className="p-6">
-        <div className="mb-6">
+        <div className="mb-2">
           <div className="my-2 text-darkMid">{product.category}</div>
 
-          <div className="flex items-center justify-center h-[400px] bg-darkMid/20 mt-4 mb-8 rounded-lg">
-            <span>Placeholder Image</span>
+          <div className="flex items-center justify-center mt-2 mb-2 rounded-lg">
+            <img
+              src={product.image}
+              alt={product.name}
+              className="object-center object-fill h-[350px]"
+            />
           </div>
 
           <h3 className="text-xl font-semibold font-gilroy">{product.name}</h3>
         </div>
 
-        <div className="mb-2">
-          {showMore ? product.description : shortDescription}
-        </div>
-
-        <button
-          onClick={() => {
-            setShowMore((currentState) => !currentState);
-          }}
-          className="mb-2"
-        >
-          Show {showMore ? "Less" : "More"}
-        </button>
-
-        <h3 className="mb-2 text-darkMid">${product.price}</h3>
+        <h3 className="mb-2 text-darkMid">Rs. {product.price}</h3>
 
         <div className="mb-5 border border-darkMid/10"></div>
 
@@ -62,12 +48,11 @@ export default function Product({ product }) {
 
 Product.propTypes = {
   product: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    category: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    stockAvailibilty: PropTypes.string.isRequired,
-  }).isRequired,
+    id: PropTypes.any,
+    category: PropTypes.string,
+    image: PropTypes.string,
+    name: PropTypes.string,
+    price: PropTypes.number,
+    stockAvailibilty: PropTypes.string,
+  }),
 };
