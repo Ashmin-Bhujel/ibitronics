@@ -42,7 +42,7 @@ export default function Product({ product }) {
           <div className="mb-3 text-primary">{product.stockAvailibilty}</div>
 
           <Link
-            to="/products"
+            to={`/products/${product.id}`}
             className="h-[36px] bg-dark hover:bg-dark/85 text-light px-4 py-2 rounded-lg text-center text-sm"
           >
             <div className="flex items-center gap-2">
