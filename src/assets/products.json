@@ -52,5 +52,113 @@
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque velit natus ipsum, ut, quo numquam est voluptatem sit eum rerum neque ad assumenda, magnam officia quod doloremque.",
     "price": 99,
     "stockAvailibilty": "In Stock"
+  },
+  {
+    "id": 7,
+    "category": "Apple Watch",
+    "image": "",
+    "name": "Apple Watch L",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque velit natus ipsum, ut, quo numquam est voluptatem sit eum rerum neque ad assumenda, magnam officia quod doloremque.",
+    "price": 99,
+    "stockAvailibilty": "In Stock"
+  },
+  {
+    "id": 8,
+    "category": "Apple Watch",
+    "image": "",
+    "name": "Apple Watch L",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque velit natus ipsum, ut, quo numquam est voluptatem sit eum rerum neque ad assumenda, magnam officia quod doloremque.",
+    "price": 99,
+    "stockAvailibilty": "In Stock"
+  },
+  {
+    "id": 9,
+    "category": "Apple Watch",
+    "image": "",
+    "name": "Apple Watch L",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque velit natus ipsum, ut, quo numquam est voluptatem sit eum rerum neque ad assumenda, magnam officia quod doloremque.",
+    "price": 99,
+    "stockAvailibilty": "In Stock"
+  },
+  {
+    "id": 10,
+    "category": "Apple Watch",
+    "image": "",
+    "name": "Apple Watch L",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque velit natus ipsum, ut, quo numquam est voluptatem sit eum rerum neque ad assumenda, magnam officia quod doloremque.",
+    "price": 99,
+    "stockAvailibilty": "In Stock"
+  },
+  {
+    "id": 11,
+    "category": "Apple Watch",
+    "image": "",
+    "name": "Apple Watch L",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque velit natus ipsum, ut, quo numquam est voluptatem sit eum rerum neque ad assumenda, magnam officia quod doloremque.",
+    "price": 99,
+    "stockAvailibilty": "In Stock"
+  },
+  {
+    "id": 12,
+    "category": "Apple Watch",
+    "image": "",
+    "name": "Apple Watch L",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque velit natus ipsum, ut, quo numquam est voluptatem sit eum rerum neque ad assumenda, magnam officia quod doloremque.",
+    "price": 99,
+    "stockAvailibilty": "In Stock"
+  },
+  {
+    "id": 13,
+    "category": "Apple Watch",
+    "image": "",
+    "name": "Apple Watch L",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque velit natus ipsum, ut, quo numquam est voluptatem sit eum rerum neque ad assumenda, magnam officia quod doloremque.",
+    "price": 99,
+    "stockAvailibilty": "In Stock"
+  },
+  {
+    "id": 14,
+    "category": "Apple Watch",
+    "image": "",
+    "name": "Apple Watch L",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque velit natus ipsum, ut, quo numquam est voluptatem sit eum rerum neque ad assumenda, magnam officia quod doloremque.",
+    "price": 99,
+    "stockAvailibilty": "In Stock"
+  },
+  {
+    "id": 15,
+    "category": "Apple Watch",
+    "image": "",
+    "name": "Apple Watch L",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque velit natus ipsum, ut, quo numquam est voluptatem sit eum rerum neque ad assumenda, magnam officia quod doloremque.",
+    "price": 99,
+    "stockAvailibilty": "In Stock"
+  },
+  {
+    "id": 16,
+    "category": "Apple Watch",
+    "image": "",
+    "name": "Apple Watch L",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque velit natus ipsum, ut, quo numquam est voluptatem sit eum rerum neque ad assumenda, magnam officia quod doloremque.",
+    "price": 99,
+    "stockAvailibilty": "In Stock"
+  },
+  {
+    "id": 17,
+    "category": "Apple Watch",
+    "image": "",
+    "name": "Apple Watch L",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque velit natus ipsum, ut, quo numquam est voluptatem sit eum rerum neque ad assumenda, magnam officia quod doloremque.",
+    "price": 99,
+    "stockAvailibilty": "In Stock"
+  },
+  {
+    "id": 18,
+    "category": "Apple Watch",
+    "image": "",
+    "name": "Apple Watch L",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque velit natus ipsum, ut, quo numquam est voluptatem sit eum rerum neque ad assumenda, magnam officia quod doloremque.",
+    "price": 99,
+    "stockAvailibilty": "In Stock"
   }
 ]

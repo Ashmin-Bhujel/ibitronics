@@ -44,6 +44,10 @@ export default function Product({ product }) {
           <Link
             to={`/products/${product.id}`}
             className="h-[36px] bg-dark hover:bg-dark/85 text-light px-4 py-2 rounded-lg text-center text-sm"
+            onClick={() => {
+              document.body.scrollTop = 0;
+              document.documentElement.scrollTop = 0;
+            }}
           >
             <div className="flex items-center gap-2">
               <FaCartShopping />
