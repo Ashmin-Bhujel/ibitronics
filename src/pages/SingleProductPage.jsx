@@ -56,7 +56,7 @@ export default function SingleProductPage() {
             className="text-dark text-xl hover:text-primary flex items-center"
           >
             <FaArrowLeft className="inline-block mr-2" />
-            <span>Back to Job Listings</span>
+            <span>Back to Products Page</span>
           </Link>
         </div>
       </section>
