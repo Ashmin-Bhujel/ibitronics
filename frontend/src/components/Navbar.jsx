@@ -1,7 +1,21 @@
+import { useContext, useEffect, useState } from "react";
 import { FaApple, FaBars, FaCartShopping } from "react-icons/fa6";
 import { NavLink, Link } from "react-router-dom";
+import { StoreContext } from "../utils/contexts/StoreContext";
+import PropTypes from "prop-types";
 
-const Navbar = () => {
+const Navbar = ({ setShowLogin, setShowMobileMenu }) => {
+  const { cartItems } = useContext(StoreContext);
+  const [totalItems, setTotalItems] = useState(0);
+
+  useEffect(() => {
+    let count = 0;
+    Object.values(cartItems).forEach((item) => {
+      count += item;
+    });
+    setTotalItems(count);
+  }, [cartItems]);
+
   return (
     <nav className="bg-dark">
       <div className="flex items-center justify-between p-8 mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -25,25 +39,35 @@ const Navbar = () => {
             Dashboard
           </NavLink>
 
-          <Link to="/cart" className="relative text-light hover:text-primary">
+          <NavLink
+            to="/cart"
+            className="relative text-light hover:text-primary"
+          >
             <div>
               <div className="text-sm absolute top-[-1rem] right-[-0.5rem]">
-                0
+                {totalItems}
               </div>
               <FaCartShopping />
             </div>
-          </Link>
+          </NavLink>
 
-          <Link
+          <button
             to="/login"
             className="px-6 py-2 font-medium text-lg rounded-full text-dark bg-lightMid hover:bg-primary hover:text-light"
+            onClick={() => {
+              setShowLogin(true);
+            }}
           >
-            Login
-          </Link>
+            Log In
+          </button>
         </div>
 
         <button className="max-md:block md:hidden text-light text-2xl active:text-primary">
-          <FaBars />
+          <FaBars
+            onClick={() => {
+              setShowMobileMenu(true);
+            }}
+          />
         </button>
       </div>
     </nav>
@@ -51,3 +75,8 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+Navbar.propTypes = {
+  setShowLogin: PropTypes.func,
+  setShowMobileMenu: PropTypes.func,
+};

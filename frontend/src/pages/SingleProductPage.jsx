@@ -5,12 +5,13 @@ import {
   FaCircleMinus,
   FaCirclePlus,
 } from "react-icons/fa6";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { StoreContext } from "../utils/contexts/StoreContext";
 
 const SingleProductPage = () => {
   const [product, setProduct] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [productCount, setProductCount] = useState(0);
+  const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
   const { id } = useParams();
 
   useEffect(() => {
@@ -129,22 +130,22 @@ const SingleProductPage = () => {
                   <span>Add to Cart</span>
                 </h3>
 
-                <div className="flex gap-8 items-center justify-center">
+                <div className="flex items-center justify-center gap-8">
                   <div className="flex items-center gap-4 p-4 mx-auto text-xl border rounded-full shadow-md bg-lightMid w-fit">
                     <button
                       onClick={() => {
-                        setProductCount((current) =>
-                          current > 0 ? current - 1 : 0
-                        );
+                        removeFromCart(product.id);
                       }}
                       className="text-2xl hover:text-dark/90"
                     >
                       <FaCircleMinus />
                     </button>
-                    <span className="text-center min-w-10">{productCount}</span>
+                    <span className="text-center min-w-10">
+                      {cartItems[product.id] || 0}
+                    </span>
                     <button
                       onClick={() => {
-                        setProductCount((current) => current + 1);
+                        addToCart(product.id);
                       }}
                       className="text-2xl hover:text-dark/90"
                     >
@@ -152,7 +153,7 @@ const SingleProductPage = () => {
                     </button>
                   </div>
                   <button className="block w-full px-6 py-4 mx-auto font-semibold text-center rounded-full bg-dark text-light hover:bg-dark/90">
-                    Buy Now
+                    Shop Now
                   </button>
                 </div>
               </div>
