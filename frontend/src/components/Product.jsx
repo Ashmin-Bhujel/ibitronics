@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import { FaCartShopping } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 export default function Product({ product }) {
@@ -11,7 +10,7 @@ export default function Product({ product }) {
 
           <div className="flex items-center justify-center mt-2 mb-2 rounded-lg">
             <img
-              src={`images/products/${product.image}`}
+              src={`/images/products/${product.image}`}
               alt={product.name}
               className="object-center object-fill h-[350px]"
             />
@@ -25,7 +24,9 @@ export default function Product({ product }) {
         <div className="mb-5 border border-darkMid/10"></div>
 
         <div className="flex flex-col justify-between mb-4 lg:flex-row">
-          <div className="mb-3 text-primary">{product.stockAvailibility}</div>
+          <div className="mb-3 text-primary">
+            {product.stockAvailability ? "In Stock" : "Out of Stock"}
+          </div>
 
           <Link
             to={`/products/${product.id}`}
@@ -35,10 +36,7 @@ export default function Product({ product }) {
               document.documentElement.scrollTop = 0;
             }}
           >
-            <div className="flex items-center gap-2">
-              <FaCartShopping />
-              Shop Now
-            </div>
+            <span>View Details</span>
           </Link>
         </div>
       </div>
@@ -48,11 +46,11 @@ export default function Product({ product }) {
 
 Product.propTypes = {
   product: PropTypes.shape({
-    id: PropTypes.number,
-    category: PropTypes.string,
-    image: PropTypes.string,
-    name: PropTypes.string,
-    price: PropTypes.string,
-    stockAvailibility: PropTypes.string,
+    id: PropTypes.number.isRequired,
+    category: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+    stockAvailability: PropTypes.number.isRequired,
   }),
 };

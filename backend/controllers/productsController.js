@@ -57,3 +57,20 @@ export const listProducts = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
+export const getProductWithId = async (req, res) => {
+  try {
+    const [rows] = await dbPool.execute(`SELECT * FROM products where id = ?`, [
+      req.params.id,
+    ]);
+
+    if (rows.length > 0) {
+      res.status(200).json(rows);
+    } else {
+      res.status(404).json({ message: "No product found" });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};

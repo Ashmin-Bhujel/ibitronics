@@ -3,6 +3,7 @@ import DefaultLayout from "../layouts/DefaultLayout";
 import Home from "../pages/Home";
 import ProductsPage from "../pages/ProductsPage";
 import NotFoundPage from "../pages/NotFoundPage";
+import SingleProductPage from "../pages/SingleProductPage";
 
 export const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ export const router = createBrowserRouter([
       {
         path: "/products",
         element: <ProductsPage />,
+      },
+      {
+        path: "/products/:id",
+        element: <SingleProductPage />,
       },
       {
         path: "*",

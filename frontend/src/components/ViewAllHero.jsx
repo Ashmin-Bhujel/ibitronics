@@ -11,7 +11,7 @@ const ViewAllHero = () => {
           document.documentElement.scrollTop = 0;
         }}
       >
-        Explore Products
+        Browse Products
       </Link>
     </section>
   );
