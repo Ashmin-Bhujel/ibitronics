@@ -11,7 +11,7 @@ import toast from "react-hot-toast";
 
 const SingleProductPage = () => {
   const [product, setProduct] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
   const { id } = useParams();
 
@@ -23,6 +23,7 @@ const SingleProductPage = () => {
         const [data] = await response.json();
 
         setProduct(data);
+        setIsLoading(true);
       } catch (error) {
         console.log(error);
       } finally {
@@ -38,7 +39,9 @@ const SingleProductPage = () => {
   }, [id]);
 
   return isLoading ? (
-    <div className="min-h-screen text-4xl">Loading</div>
+    <div className="min-h-screen text-4xl flex items-center justify-center">
+      Loading Data
+    </div>
   ) : (
     <>
       <section>
@@ -57,11 +60,15 @@ const SingleProductPage = () => {
         <div className="container px-6 py-10 m-auto">
           <div className="flex justify-center w-full gap-6 max-md:flex-col">
             <main className="flex-1">
-              <div className="p-6 text-center rounded-lg shadow-md bg-light md:text-left">
+              <div className="min-h-full p-6 text-center rounded-lg shadow-md bg-light md:text-left">
                 <div className="mb-4 text-darkMid">{product.category}</div>
                 <h1 className="text-3xl font-bold">{product.name}</h1>
                 <img
-                  src={`/images/products/${product.image}`}
+                  src={
+                    product.image
+                      ? `/images/products/${product.image}`
+                      : "/src/assets/placeholder.png"
+                  }
                   alt={product.name}
                   className="h-[540px] object-cover mx-auto"
                 />
@@ -131,7 +138,7 @@ const SingleProductPage = () => {
                   <span>Add to Cart</span>
                 </h3>
 
-                <div className="flex max-lg:flex-col items-center justify-center gap-8">
+                <div className="flex items-center justify-center gap-8 max-lg:flex-col">
                   <div className="flex items-center gap-4 p-4 mx-auto text-xl border rounded-full shadow-md bg-lightMid w-fit">
                     <button
                       onClick={() => {

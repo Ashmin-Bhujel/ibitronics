@@ -4,12 +4,16 @@ import toast from "react-hot-toast";
 
 const CartItem = ({ product, quantity, removeFromCart }) => {
   return (
-    <div className="flex max-xl:flex-col max-xl:gap-4 items-center justify-between p-4 mb-4 border-b border-gray-200">
+    <div className="flex items-center justify-between p-4 mb-4 border-b border-gray-200 max-xl:flex-col max-xl:gap-4">
       <div className="flex items-center">
         <img
-          src={`/images/products/${product.image}`}
+          src={
+            product.image
+              ? `/images/products/${product.image}`
+              : "/src/assets/placeholder.png"
+          }
           alt={product.name}
-          className="w-16 h-16 object-cover rounded-lg"
+          className="object-cover w-16 h-16 rounded-lg"
         />
         <div className="ml-4">
           <Link
@@ -25,9 +29,10 @@ const CartItem = ({ product, quantity, removeFromCart }) => {
         </div>
       </div>
 
-      <div className="flex max-xl:flex-col max-xl:gap-4 items-center">
-        <div className="mr-4 min-w-[150px] text-right font-semibold">
-          <span>Total = Rs. {product.price * quantity}</span>
+      <div className="flex items-center max-xl:flex-col max-xl:gap-4">
+        <div className="mr-4 min-w-[150px] flex flex-col text-center font-semibold">
+          <span>Total</span>
+          <span>Rs. {product.price * quantity}</span>
         </div>
         <button
           onClick={() => {
@@ -39,7 +44,7 @@ const CartItem = ({ product, quantity, removeFromCart }) => {
               },
             });
           }}
-          className="h-[36px] w-full bg-red-600 hover:bg-red-500 text-light px-4 py-2 rounded-full text-center text-sm"
+          className="w-full bg-red-600 hover:bg-red-500 text-light px-6 py-3 rounded-full text-center text-sm"
         >
           Remove
         </button>

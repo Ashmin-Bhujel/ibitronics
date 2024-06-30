@@ -31,7 +31,7 @@ const Login = ({ setShowLogin }) => {
                 name="username"
                 id="username"
                 placeholder="Username"
-                className="p-2 text-base text-dark"
+                className="p-4 text-base text-dark rounded-lg"
                 required
               />
 
@@ -40,7 +40,7 @@ const Login = ({ setShowLogin }) => {
                 name="name"
                 id="name"
                 placeholder="Full Name"
-                className="p-2 text-base text-dark"
+                className="p-4 text-base text-dark rounded-lg"
                 required
               />
             </>
@@ -51,7 +51,7 @@ const Login = ({ setShowLogin }) => {
             name="email"
             id="email"
             placeholder="Email"
-            className="p-2 text-base text-dark"
+            className="p-4 text-base text-dark rounded-lg"
             required
           />
 
@@ -60,11 +60,10 @@ const Login = ({ setShowLogin }) => {
             name="password"
             id="password"
             placeholder="Password"
-            className="p-2 text-base text-dark"
+            className="p-4 text-base text-dark rounded-lg"
             required
           />
         </div>
-
         {!isLogin ? (
           <div className="space-x-2">
             <input type="checkbox" name="agree" id="agree" />
@@ -80,7 +79,7 @@ const Login = ({ setShowLogin }) => {
         <input
           type="submit"
           value={isLogin ? "Log In" : "Register"}
-          className="px-6 py-2 font-medium text-lg rounded-full text-dark bg-lightMid hover:bg-primary hover:text-light"
+          className="px-6 py-3 font-medium text-lg rounded-full text-dark bg-lightMid hover:bg-primary hover:text-light"
         />
       </form>
 

@@ -10,7 +10,11 @@ export default function Product({ product }) {
 
           <div className="flex items-center justify-center mt-2 mb-2 rounded-lg">
             <img
-              src={`/images/products/${product.image}`}
+              src={
+                product.image
+                  ? `/images/products/${product.image}`
+                  : "/src/assets/placeholder.png"
+              }
               alt={product.name}
               className="object-center object-fill h-[350px]"
             />
@@ -30,7 +34,7 @@ export default function Product({ product }) {
 
           <Link
             to={`/products/${product.id}`}
-            className="h-[36px] bg-dark hover:bg-dark/85 text-light px-4 py-2 rounded-full text-center text-sm"
+            className="bg-dark hover:bg-dark/85 text-light px-4 py-3 rounded-full text-center text-sm"
             onClick={() => {
               document.body.scrollTop = 0;
               document.documentElement.scrollTop = 0;
