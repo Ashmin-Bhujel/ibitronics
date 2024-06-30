@@ -10,11 +10,15 @@ const Navbar = ({ setShowLogin, setShowMobileMenu }) => {
   const [totalItems, setTotalItems] = useState(0);
 
   useEffect(() => {
-    let count = 0;
-    Object.values(cartItems).forEach((item) => {
-      count += item;
-    });
-    setTotalItems(count);
+    try {
+      let count = 0;
+      Object.values(cartItems).forEach((item) => {
+        count += item;
+      });
+      setTotalItems(count);
+    } catch (error) {
+      console.log(error);
+    }
   }, [cartItems]);
 
   return (

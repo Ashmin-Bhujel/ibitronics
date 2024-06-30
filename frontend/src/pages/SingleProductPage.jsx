@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa6";
 import { useContext, useEffect, useState } from "react";
 import { StoreContext } from "../utils/contexts/StoreContext";
+import toast from "react-hot-toast";
 
 const SingleProductPage = () => {
   const [product, setProduct] = useState({});
@@ -41,7 +42,7 @@ const SingleProductPage = () => {
   ) : (
     <>
       <section>
-        <div className="container px-6 py-6 m-auto">
+        <div className="container px-6 pt-6 m-auto">
           <Link
             to="/products"
             className="flex items-center text-xl text-dark hover:text-primary"
@@ -130,11 +131,22 @@ const SingleProductPage = () => {
                   <span>Add to Cart</span>
                 </h3>
 
-                <div className="flex items-center justify-center gap-8">
+                <div className="flex max-lg:flex-col items-center justify-center gap-8">
                   <div className="flex items-center gap-4 p-4 mx-auto text-xl border rounded-full shadow-md bg-lightMid w-fit">
                     <button
                       onClick={() => {
                         removeFromCart(product.id);
+                        if (cartItems[product.id] > 0) {
+                          toast.success(
+                            `One ${product.name} removed from cart`,
+                            {
+                              style: {
+                                borderRadius: "9999px",
+                                padding: "1rem",
+                              },
+                            }
+                          );
+                        }
                       }}
                       className="text-2xl hover:text-dark/90"
                     >
@@ -146,15 +158,24 @@ const SingleProductPage = () => {
                     <button
                       onClick={() => {
                         addToCart(product.id);
+                        toast.success(`One ${product.name} added to cart`, {
+                          style: {
+                            borderRadius: "9999px",
+                            padding: "1rem",
+                          },
+                        });
                       }}
                       className="text-2xl hover:text-dark/90"
                     >
                       <FaCirclePlus />
                     </button>
                   </div>
-                  <button className="block w-full px-6 py-4 mx-auto font-semibold text-center rounded-full bg-dark text-light hover:bg-dark/90">
-                    Shop Now
-                  </button>
+                  <Link
+                    to="/cart"
+                    className="block w-full px-6 py-4 mx-auto font-semibold text-center rounded-full bg-dark text-light hover:bg-dark/90"
+                  >
+                    Go to Cart
+                  </Link>
                 </div>
               </div>
             </aside>
