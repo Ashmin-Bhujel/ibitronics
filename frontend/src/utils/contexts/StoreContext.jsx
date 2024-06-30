@@ -14,30 +14,44 @@ const StoreContext = createContext({
 });
 
 const StoreContextProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState({});
+  const [cartItems, setCartItems] = useState(
+    JSON.parse(localStorage.getItem("cartItems")) || {}
+  );
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const addToCart = (productId) => {
     if (!cartItems[productId]) {
-      setCartItems((current) => ({ ...current, [productId]: 1 }));
+      setCartItems((current) => {
+        const newCartItems = { ...current, [productId]: 1 };
+        localStorage.setItem("cartItems", JSON.stringify(newCartItems));
+        return newCartItems;
+      });
     } else {
-      setCartItems((current) => ({
-        ...current,
-        [productId]: cartItems[productId] + 1,
-      }));
+      setCartItems((current) => {
+        const newCartItems = {
+          ...current,
+          [productId]: cartItems[productId] + 1,
+        };
+        localStorage.setItem("cartItems", JSON.stringify(newCartItems));
+        return newCartItems;
+      });
     }
   };
 
   const removeFromCart = (productId) => {
     setCartItems((current) => {
       if (cartItems[productId] > 0) {
-        return {
+        const newCartItems = {
           ...current,
           [productId]: cartItems[productId] - 1,
         };
+        localStorage.setItem("cartItems", JSON.stringify(newCartItems));
+        return newCartItems;
       } else {
-        return { ...current, [productId]: 0 };
+        const newCartItems = { ...current, [productId]: 0 };
+        localStorage.setItem("cartItems", JSON.stringify(newCartItems));
+        return newCartItems;
       }
     });
   };

@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import { useState } from "react";
 import Login from "../components/Login";
 import MobileMenu from "../components/MobileMenu";
+import { Toaster } from "react-hot-toast";
 
 const DefaultLayout = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -11,6 +12,7 @@ const DefaultLayout = () => {
 
   return (
     <>
+      <Toaster />
       {showLogin && <Login setShowLogin={setShowLogin} />}
 
       {showMobileMenu && (

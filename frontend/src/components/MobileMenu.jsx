@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Link, NavLink } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { StoreContext } from "../utils/contexts/StoreContext";
+import toast from "react-hot-toast";
 
 const MobileMenu = ({ setShowLogin, setShowMobileMenu }) => {
   const { cartItems } = useContext(StoreContext);
@@ -17,7 +18,7 @@ const MobileMenu = ({ setShowLogin, setShowMobileMenu }) => {
   }, [cartItems]);
 
   return (
-    <div className="absolute flex flex-col items-center justify-center gap-16 bg-dark text-light w-full h-full z-10">
+    <div className="fixed top-0 min-h-screen flex flex-col items-center justify-center gap-16 bg-dark text-light w-full h-full z-10">
       <div className="flex items-center gap-4">
         <div className="text-3xl font-semibold font-gilroy text-light sm:text-4xl">
           <Link to="/" className="flex items-center gap-1 ">
@@ -85,6 +86,13 @@ const MobileMenu = ({ setShowLogin, setShowMobileMenu }) => {
           onClick={() => {
             setShowMobileMenu(false);
             setShowLogin(true);
+            toast("Login to continue shopping", {
+              icon: "🔒",
+              style: {
+                borderRadius: "9999px",
+                padding: "1rem",
+              },
+            });
           }}
         >
           Log In

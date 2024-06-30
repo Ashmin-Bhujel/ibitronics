@@ -6,7 +6,7 @@ const Login = ({ setShowLogin }) => {
   const [isLogin, setIsLogin] = useState(true);
 
   return (
-    <div className="absolute z-10 flex flex-col gap-4 items-center justify-center w-full h-full bg-dark/75 text-light">
+    <div className="fixed top-0 min-h-screen z-10 flex flex-col gap-4 items-center justify-center w-full h-full bg-dark/75 text-light">
       <form className="relative max-sm:w-[90%] md:w-[400px] flex flex-col gap-4 p-10 bg-dark rounded-xl text-light shadow-lg">
         <div className="flex items-center">
           <div className="text-2xl font-semibold font-gilroy text-light sm:text-3xl">

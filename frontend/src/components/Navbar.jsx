@@ -3,6 +3,7 @@ import { FaApple, FaBars, FaCartShopping } from "react-icons/fa6";
 import { NavLink, Link } from "react-router-dom";
 import { StoreContext } from "../utils/contexts/StoreContext";
 import PropTypes from "prop-types";
+import toast from "react-hot-toast";
 
 const Navbar = ({ setShowLogin, setShowMobileMenu }) => {
   const { cartItems } = useContext(StoreContext);
@@ -56,6 +57,13 @@ const Navbar = ({ setShowLogin, setShowMobileMenu }) => {
             className="px-6 py-2 font-medium text-lg rounded-full text-dark bg-lightMid hover:bg-primary hover:text-light"
             onClick={() => {
               setShowLogin(true);
+              toast("Login to continue shopping", {
+                icon: "🔒",
+                style: {
+                  borderRadius: "9999px",
+                  padding: "1rem",
+                },
+              });
             }}
           >
             Log In
