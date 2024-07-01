@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-export default function Product({ product }) {
+const Product = ({ product }) => {
   return (
     <div className="relative shadow-md bg-light rounded-xl">
       <div className="p-6">
@@ -46,7 +46,9 @@ export default function Product({ product }) {
       </div>
     </div>
   );
-}
+};
+
+export default Product;
 
 Product.propTypes = {
   product: PropTypes.shape({

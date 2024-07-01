@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import toast from "react-hot-toast";
+import { toastStyle } from "../utils/toastStyle";
 
 const CartItem = ({ product, quantity, removeFromCart }) => {
   return (
@@ -38,10 +39,7 @@ const CartItem = ({ product, quantity, removeFromCart }) => {
           onClick={() => {
             removeFromCart(product.id);
             toast.success(`One ${product.name} removed from cart`, {
-              style: {
-                borderRadius: "9999px",
-                padding: "1rem",
-              },
+              style: toastStyle,
             });
           }}
           className="w-full bg-red-600 hover:bg-red-500 text-light px-6 py-3 rounded-full text-center text-sm"

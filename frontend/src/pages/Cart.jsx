@@ -4,6 +4,7 @@ import { Link, useOutletContext } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa6";
 import CartItem from "../components/CartItem";
 import toast from "react-hot-toast";
+import { toastStyle } from "../utils/toastStyle";
 
 const Cart = () => {
   const { setShowLogin } = useOutletContext();
@@ -20,10 +21,7 @@ const Cart = () => {
   function handlePromoCode() {
     if (promoCodeValue.toLowerCase() !== promocode) {
       toast.error("Invalid promo code", {
-        style: {
-          borderRadius: "9999px",
-          padding: "1rem",
-        },
+        style: toastStyle,
       });
       setPromoCodeValue("");
     } else if (
@@ -31,10 +29,7 @@ const Cart = () => {
       promoCodeCount === 1
     ) {
       toast.error("Promo code already applied", {
-        style: {
-          borderRadius: "9999px",
-          padding: "1rem",
-        },
+        style: toastStyle,
       });
       setPromoCodeValue("");
     } else if (
@@ -42,10 +37,7 @@ const Cart = () => {
       promoCodeCount === 0
     ) {
       toast.success("Promo code applied successfully", {
-        style: {
-          borderRadius: "9999px",
-          padding: "1rem",
-        },
+        style: toastStyle,
       });
       setPromoCodeCount(1);
       setTotalPrice(totalPrice - totalPrice * 0.5);
@@ -56,10 +48,7 @@ const Cart = () => {
   function handleCheckout() {
     if (totalItems === 0) {
       toast.error("Your cart is empty", {
-        style: {
-          borderRadius: "9999px",
-          padding: "1rem",
-        },
+        style: toastStyle,
       });
     } else {
       const isAuthenticated = JSON.parse(
@@ -72,19 +61,13 @@ const Cart = () => {
         localStorage.removeItem("cartItems");
         setPromoCodeCount(0);
         toast.success(`${user.fullName}, Your order has been placed`, {
-          style: {
-            borderRadius: "9999px",
-            padding: "1rem",
-          },
+          style: toastStyle,
         });
       } else {
         setShowLogin(true);
         toast("Login to continue shopping", {
           icon: "🔒",
-          style: {
-            borderRadius: "9999px",
-            padding: "1rem",
-          },
+          style: toastStyle,
         });
       }
     }

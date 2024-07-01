@@ -18,7 +18,7 @@ app.use("/api/products", productsRouter);
 app.use("/api/users", usersRouter);
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send("Hello from server of iBitronics.");
 });
 
 app.listen(port, () => {

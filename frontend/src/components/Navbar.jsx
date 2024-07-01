@@ -4,6 +4,7 @@ import { NavLink, Link } from "react-router-dom";
 import { StoreContext } from "../utils/contexts/StoreContext";
 import PropTypes from "prop-types";
 import toast from "react-hot-toast";
+import { toastStyle } from "../utils/toastStyle";
 
 const Navbar = ({ setShowLogin, setShowMobileMenu }) => {
   const isAuthenticated = JSON.parse(localStorage.getItem("isAuthenticated"));
@@ -85,10 +86,7 @@ const Navbar = ({ setShowLogin, setShowMobileMenu }) => {
                 setShowLogin(true);
                 toast("Login to continue shopping", {
                   icon: "🔒",
-                  style: {
-                    borderRadius: "9999px",
-                    padding: "1rem",
-                  },
+                  style: toastStyle,
                 });
               }}
             >

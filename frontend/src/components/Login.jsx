@@ -2,12 +2,13 @@ import { FaApple, FaCircleXmark } from "react-icons/fa6";
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
+import { toastStyle } from "../utils/toastStyle";
 
 const Login = ({ setShowLogin }) => {
   const [isLogin, setIsLogin] = useState(true);
   const [credentials, setCredentials] = useState({
     username: "",
-    name: "",
+    fullName: "",
     email: "",
     password: "",
   });
@@ -37,16 +38,61 @@ const Login = ({ setShowLogin }) => {
       const data = await response.json();
 
       if (data.isAuthenticated) {
-        toast.success(`Successfully logged in`);
+        toast.success(`Successfully logged in`, {
+          style: toastStyle,
+        });
         return true;
       } else {
-        toast.error("Invalid email or password");
+        toast.error("Invalid email or password", {
+          style: toastStyle,
+        });
         return false;
       }
     } catch (error) {
       console.log(error);
-      toast.error("An error occurred during authentication");
+      toast.error("An error occurred during authentication", {
+        style: toastStyle,
+      });
       return false;
+    }
+  };
+
+  const handleSignUp = async () => {
+    const headersList = {
+      Accept: "*/*",
+      "Content-Type": "application/json",
+    };
+
+    const bodyContent = JSON.stringify({
+      username: credentials.username,
+      fullName: credentials.fullName,
+      email: credentials.email,
+      password: credentials.password,
+    });
+
+    try {
+      const response = await fetch("/api/users/create", {
+        method: "POST",
+        headers: headersList,
+        body: bodyContent,
+      });
+      const data = await response.json();
+      console.log(data);
+      if (response.ok) {
+        toast.success("Account created successfully", {
+          style: toastStyle,
+        });
+        setIsLogin(true);
+      } else {
+        toast.error("An error occurred during account creation", {
+          style: toastStyle,
+        });
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("An error occurred during account creation", {
+        style: toastStyle,
+      });
     }
   };
 
@@ -76,15 +122,20 @@ const Login = ({ setShowLogin }) => {
 
   const handleForm = (e) => {
     e.preventDefault();
-    console.log(credentials);
 
     if (isLogin) {
       toast
-        .promise(loginAuth(), {
-          loading: "Authenticating",
-          success: "Authentication Complete",
-          error: "Authentication Failed",
-        })
+        .promise(
+          loginAuth(),
+          {
+            loading: "Authenticating",
+            success: "Authentication Complete",
+            error: "Authentication Failed",
+          },
+          {
+            style: toastStyle,
+          }
+        )
         .then((authStatus) => {
           localStorage.setItem("isAuthenticated", authStatus);
           console.log(
@@ -110,10 +161,14 @@ const Login = ({ setShowLogin }) => {
             if (JSON.parse(localStorage.getItem("isAuthenticated"))) {
               setShowLogin(false);
               const user = JSON.parse(localStorage.getItem("user"));
-              toast.success(`Welcome ${user.username}`);
+              toast.success(`Welcome ${user.username}`, {
+                style: toastStyle,
+              });
             }
           }, 1000);
         });
+    } else {
+      handleSignUp();
     }
   };
 
@@ -154,12 +209,12 @@ const Login = ({ setShowLogin }) => {
 
               <input
                 type="text"
-                name="name"
-                id="name"
+                name="fullName"
+                id="fullName"
                 placeholder="Full Name"
                 className="p-4 text-base text-dark rounded-lg"
                 required
-                value={credentials.name}
+                value={credentials.fullName}
                 onChange={handleInput}
               />
             </>

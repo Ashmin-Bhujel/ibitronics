@@ -5,7 +5,7 @@ import ViewAll from "./ViewAll";
 import { StoreContext } from "../utils/contexts/StoreContext";
 import ProductFilter from "./ProductFilter";
 
-export default function Products({ isHomePage = false }) {
+const Products = ({ isHomePage = false }) => {
   const { products, isLoading } = useContext(StoreContext);
   const [category, setCategory] = useState("All");
 
@@ -46,7 +46,9 @@ export default function Products({ isHomePage = false }) {
       </section>
     </>
   );
-}
+};
+
+export default Products;
 
 Products.propTypes = {
   isHomePage: PropTypes.bool,

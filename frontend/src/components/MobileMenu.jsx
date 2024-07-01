@@ -4,6 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { StoreContext } from "../utils/contexts/StoreContext";
 import toast from "react-hot-toast";
+import { toastStyle } from "../utils/toastStyle";
 
 const MobileMenu = ({ setShowLogin, setShowMobileMenu }) => {
   const isAuthenticated = JSON.parse(localStorage.getItem("isAuthenticated"));
@@ -114,10 +115,7 @@ const MobileMenu = ({ setShowLogin, setShowMobileMenu }) => {
               setShowLogin(true);
               toast("Login to continue shopping", {
                 icon: "🔒",
-                style: {
-                  borderRadius: "9999px",
-                  padding: "1rem",
-                },
+                style: toastStyle,
               });
             }}
           >

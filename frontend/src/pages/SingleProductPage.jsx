@@ -8,6 +8,7 @@ import {
 import { useContext, useEffect, useState } from "react";
 import { StoreContext } from "../utils/contexts/StoreContext";
 import toast from "react-hot-toast";
+import { toastStyle } from "../utils/toastStyle";
 
 const SingleProductPage = () => {
   const [product, setProduct] = useState({});
@@ -147,10 +148,7 @@ const SingleProductPage = () => {
                           toast.success(
                             `One ${product.name} removed from cart`,
                             {
-                              style: {
-                                borderRadius: "9999px",
-                                padding: "1rem",
-                              },
+                              style: toastStyle,
                             }
                           );
                         }
@@ -166,10 +164,7 @@ const SingleProductPage = () => {
                       onClick={() => {
                         addToCart(product.id);
                         toast.success(`One ${product.name} added to cart`, {
-                          style: {
-                            borderRadius: "9999px",
-                            padding: "1rem",
-                          },
+                          style: toastStyle,
                         });
                       }}
                       className="text-2xl hover:text-dark/90"
