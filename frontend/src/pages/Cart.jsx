@@ -1,12 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import { StoreContext } from "../utils/contexts/StoreContext";
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa6";
 import CartItem from "../components/CartItem";
 import toast from "react-hot-toast";
 
 const Cart = () => {
-  const { cartItems, products, removeFromCart } = useContext(StoreContext);
+  const { setShowLogin } = useOutletContext();
+  const { cartItems, products, removeFromCart, setCartItems } =
+    useContext(StoreContext);
   const [totalItems, setTotalItems] = useState(0);
   const [subtotal, setSubtotal] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -16,7 +18,7 @@ const Cart = () => {
   const promocode = "kanjus";
 
   function handlePromoCode() {
-    if (promoCodeValue !== promocode) {
+    if (promoCodeValue.toLowerCase() !== promocode) {
       toast.error("Invalid promo code", {
         style: {
           borderRadius: "9999px",
@@ -24,7 +26,10 @@ const Cart = () => {
         },
       });
       setPromoCodeValue("");
-    } else if (promoCodeCount === 1 && promoCodeValue === promocode) {
+    } else if (
+      promoCodeValue.toLowerCase() === promocode &&
+      promoCodeCount === 1
+    ) {
       toast.error("Promo code already applied", {
         style: {
           borderRadius: "9999px",
@@ -32,7 +37,10 @@ const Cart = () => {
         },
       });
       setPromoCodeValue("");
-    } else if (promoCodeValue === promocode && promoCodeCount === 0) {
+    } else if (
+      promoCodeValue.toLowerCase() === promocode &&
+      promoCodeCount === 0
+    ) {
       toast.success("Promo code applied successfully", {
         style: {
           borderRadius: "9999px",
@@ -42,6 +50,43 @@ const Cart = () => {
       setPromoCodeCount(1);
       setTotalPrice(totalPrice - totalPrice * 0.5);
       setPromoCodeValue("");
+    }
+  }
+
+  function handleCheckout() {
+    if (totalItems === 0) {
+      toast.error("Your cart is empty", {
+        style: {
+          borderRadius: "9999px",
+          padding: "1rem",
+        },
+      });
+    } else {
+      const isAuthenticated = JSON.parse(
+        localStorage.getItem("isAuthenticated")
+      );
+      const user = JSON.parse(localStorage.getItem("user"));
+
+      if (isAuthenticated) {
+        setCartItems({});
+        localStorage.removeItem("cartItems");
+        setPromoCodeCount(0);
+        toast.success(`${user.fullName}, Your order has been placed`, {
+          style: {
+            borderRadius: "9999px",
+            padding: "1rem",
+          },
+        });
+      } else {
+        setShowLogin(true);
+        toast("Login to continue shopping", {
+          icon: "🔒",
+          style: {
+            borderRadius: "9999px",
+            padding: "1rem",
+          },
+        });
+      }
     }
   }
 
@@ -126,7 +171,7 @@ const Cart = () => {
                     <p className="text-base font-light">Rs. {deliveryCost}</p>
                   </div>
                   <div className="text-xl font-semibold">
-                    <p>Total</p>
+                    <p>{promoCodeCount === 0 ? "Total" : "Discounted Total"}</p>
                     <p className="text-lg font-semibold">Rs. {totalPrice}</p>
                   </div>
                 </div>
@@ -147,6 +192,12 @@ const Cart = () => {
                     onClick={handlePromoCode}
                   >
                     Apply Promo Code
+                  </button>
+                  <button
+                    className="block w-full px-6 py-3 mx-auto font-semibold text-center rounded-full bg-dark text-light hover:bg-dark/90"
+                    onClick={handleCheckout}
+                  >
+                    Checkout
                   </button>
                 </div>
               </div>

@@ -6,8 +6,17 @@ import { StoreContext } from "../utils/contexts/StoreContext";
 import toast from "react-hot-toast";
 
 const MobileMenu = ({ setShowLogin, setShowMobileMenu }) => {
+  const isAuthenticated = JSON.parse(localStorage.getItem("isAuthenticated"));
+  const user = JSON.parse(localStorage.getItem("user"));
   const { cartItems } = useContext(StoreContext);
   const [totalItems, setTotalItems] = useState(0);
+
+  const handleSignOut = () => {
+    localStorage.removeItem("isAuthenticated");
+    localStorage.removeItem("user");
+    localStorage.removeItem("cartItems");
+    window.location.reload();
+  };
 
   useEffect(() => {
     try {
@@ -84,23 +93,37 @@ const MobileMenu = ({ setShowLogin, setShowMobileMenu }) => {
           </div>
         </NavLink>
 
-        <button
-          to="/login"
-          className="px-6 py-2 font-medium text-lg rounded-full text-dark bg-lightMid hover:bg-primary hover:text-light"
-          onClick={() => {
-            setShowMobileMenu(false);
-            setShowLogin(true);
-            toast("Login to continue shopping", {
-              icon: "🔒",
-              style: {
-                borderRadius: "9999px",
-                padding: "1rem",
-              },
-            });
-          }}
-        >
-          Log In
-        </button>
+        {isAuthenticated ? (
+          <div className="flex flex-col items-center gap-2 relative">
+            <button
+              onClick={handleSignOut}
+              className="px-6 py-2 font-medium text-lg rounded-full text-dark bg-lightMid hover:bg-primary hover:text-light"
+            >
+              Sign Out
+            </button>
+            <span className="text-light text-xs absolute -bottom-5">
+              {user.username}
+            </span>
+          </div>
+        ) : (
+          <button
+            to="/login"
+            className="px-6 py-2 font-medium text-lg rounded-full text-dark bg-lightMid hover:bg-primary hover:text-light"
+            onClick={() => {
+              setShowMobileMenu(false);
+              setShowLogin(true);
+              toast("Login to continue shopping", {
+                icon: "🔒",
+                style: {
+                  borderRadius: "9999px",
+                  padding: "1rem",
+                },
+              });
+            }}
+          >
+            Log In
+          </button>
+        )}
       </div>
     </div>
   );

@@ -9,6 +9,7 @@ import { Toaster } from "react-hot-toast";
 const DefaultLayout = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const outletContext = { setShowLogin };
 
   return (
     <>
@@ -26,7 +27,7 @@ const DefaultLayout = () => {
         setShowLogin={setShowLogin}
         setShowMobileMenu={setShowMobileMenu}
       />
-      <Outlet />
+      <Outlet context={outletContext} />
       <Footer />
     </>
   );
