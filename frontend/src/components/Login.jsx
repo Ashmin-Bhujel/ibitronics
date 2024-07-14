@@ -138,10 +138,6 @@ const Login = ({ setShowLogin }) => {
         )
         .then((authStatus) => {
           localStorage.setItem("isAuthenticated", authStatus);
-          console.log(
-            "isAuthenticated:",
-            JSON.parse(localStorage.getItem("isAuthenticated"))
-          );
           if (authStatus) {
             return getUserData();
           } else {
@@ -151,7 +147,6 @@ const Login = ({ setShowLogin }) => {
         .then((data) => {
           if (data) {
             localStorage.setItem("user", JSON.stringify(data));
-            console.log("User data:", JSON.parse(localStorage.getItem("user")));
           } else {
             localStorage.setItem("user", JSON.stringify({}));
           }
