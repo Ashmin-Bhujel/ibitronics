@@ -50,9 +50,15 @@ const Navbar = ({ setShowLogin, setShowMobileMenu }) => {
             Products
           </NavLink>
 
-          <NavLink to="/dashboard" className="text-light hover:text-primary">
-            Dashboard
+          <NavLink to="/about" className="text-light hover:text-primary">
+            About Us
           </NavLink>
+
+          {isAuthenticated && (
+            <NavLink to="/dashboard" className="text-light hover:text-primary">
+              Dashboard
+            </NavLink>
+          )}
 
           <NavLink
             to="/cart"
