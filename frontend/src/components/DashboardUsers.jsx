@@ -7,7 +7,7 @@ const DashboardUsers = () => {
     <>
       {!isAdmin && <Navigate to="/dashboard" />}
 
-      <h1>Dashboard Users</h1>
+      <h1>All Users</h1>
     </>
   );
 };

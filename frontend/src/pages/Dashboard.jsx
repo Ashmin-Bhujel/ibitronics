@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Navigate, NavLink, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
@@ -6,41 +5,19 @@ const Dashboard = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const isAdmin = user ? Boolean(user.isAdmin) : false;
   const outletContext = { isAdmin };
-  const [ordersActive, setOrdersActive] = useState(true);
 
   return (
     <>
       {!isAuthenticated && <Navigate to="/" />}
 
-      <h1>Dashboard</h1>
       <div className="flex flex-col">
-        <NavLink
-          className={ordersActive && "active"}
-          to="/dashboard/orders"
-          onClick={() => {
-            setOrdersActive(true);
-          }}
-        >
-          {isAdmin ? "Orders" : "My Orders"}
-        </NavLink>
+        <h1>Dashboard</h1>
+        <NavLink to="/dashboard/orders">Orders</NavLink>
+
         {isAdmin && (
           <>
-            <NavLink
-              to="/dashboard/users"
-              onClick={() => {
-                setOrdersActive(false);
-              }}
-            >
-              Users
-            </NavLink>
-            <NavLink
-              to="/dashboard/products"
-              onClick={() => {
-                setOrdersActive(false);
-              }}
-            >
-              Products
-            </NavLink>
+            <NavLink to="/dashboard/users">Users</NavLink>
+            <NavLink to="/dashboard/products">Products</NavLink>
           </>
         )}
       </div>

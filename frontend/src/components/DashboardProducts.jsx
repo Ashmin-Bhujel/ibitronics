@@ -6,7 +6,7 @@ const DashboardProducts = () => {
     <>
       {!isAdmin && <Navigate to="/dashboard" />}
 
-      <h1>Dashboard Products</h1>
+      <h1>All Products</h1>
     </>
   );
 };
