@@ -3,7 +3,7 @@ import { dbPool } from "../config/database.js";
 export const getUsers = async (req, res) => {
   try {
     const [rows] = await dbPool.execute(
-      "SELECT id, username, fullName, isAdmin FROM users"
+      "SELECT id, username, email, fullName, isAdmin FROM users"
     );
     if (rows.length === 0) {
       return res.status(404).json({ message: "No users found" });

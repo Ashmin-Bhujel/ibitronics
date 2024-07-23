@@ -41,7 +41,7 @@ const Navbar = ({ setShowLogin, setShowMobileMenu }) => {
           </Link>
         </div>
 
-        <div className="items-center gap-8 max-md:hidden md:flex md:text-xl ">
+        <div className="items-center gap-8 max-lg:hidden lg:flex md:text-xl">
           <NavLink to="/" className="text-light hover:text-primary">
             Home
           </NavLink>
@@ -73,21 +73,21 @@ const Navbar = ({ setShowLogin, setShowMobileMenu }) => {
           </NavLink>
 
           {isAuthenticated ? (
-            <div className="flex flex-col items-center gap-2 relative">
+            <div className="relative flex flex-col items-center gap-2">
               <button
                 onClick={handleSignOut}
-                className="px-6 py-2 font-medium text-lg rounded-full text-dark bg-lightMid hover:bg-primary hover:text-light"
+                className="px-6 py-2 text-lg font-medium rounded-full text-dark bg-lightMid hover:bg-primary hover:text-light"
               >
                 Sign Out
               </button>
-              <span className="text-light text-xs absolute -bottom-5">
+              <span className="absolute text-xs text-light -bottom-5">
                 {user.username}
               </span>
             </div>
           ) : (
             <button
               to="/login"
-              className="px-6 py-2 font-medium text-lg rounded-full text-dark bg-lightMid hover:bg-primary hover:text-light"
+              className="px-6 py-2 text-lg font-medium rounded-full text-dark bg-lightMid hover:bg-primary hover:text-light"
               onClick={() => {
                 setShowLogin(true);
                 toast("Login to continue shopping", {
@@ -101,7 +101,7 @@ const Navbar = ({ setShowLogin, setShowMobileMenu }) => {
           )}
         </div>
 
-        <button className="max-md:block md:hidden text-light text-2xl active:text-primary">
+        <button className="text-2xl max-lg:block lg:hidden text-light active:text-primary">
           <FaBars
             onClick={() => {
               setShowMobileMenu(true);

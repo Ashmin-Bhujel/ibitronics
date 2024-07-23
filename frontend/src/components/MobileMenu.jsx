@@ -70,6 +70,16 @@ const MobileMenu = ({ setShowLogin, setShowMobileMenu }) => {
         </NavLink>
 
         <NavLink
+          to="/about"
+          className="text-light hover:text-primary"
+          onClick={() => {
+            setShowMobileMenu(false);
+          }}
+        >
+          About Us
+        </NavLink>
+
+        <NavLink
           to="/dashboard"
           className="text-light hover:text-primary"
           onClick={() => {
