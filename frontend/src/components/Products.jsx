@@ -8,8 +8,11 @@ import ProductFilter from "./ProductFilter";
 const Products = ({ isHomePage = false }) => {
   const { products, isLoading } = useContext(StoreContext);
   const [category, setCategory] = useState("All");
+  let totalProducts = [];
 
-  let totalProducts = isHomePage ? products.slice(0, 3) : products;
+  if (Array.isArray(products)) {
+    totalProducts = isHomePage ? products.slice(0, 3) : products;
+  }
 
   if (!isHomePage && category === "All") {
     totalProducts;
@@ -29,6 +32,10 @@ const Products = ({ isHomePage = false }) => {
 
           {!isHomePage && (
             <ProductFilter category={category} setCategory={setCategory} />
+          )}
+
+          {!Array.isArray(products) && (
+            <p className="text-center">No products found</p>
           )}
 
           {isLoading ? (

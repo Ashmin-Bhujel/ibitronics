@@ -5,15 +5,18 @@ import { useState } from "react";
 import Login from "../components/Login";
 import MobileMenu from "../components/MobileMenu";
 import { Toaster } from "react-hot-toast";
+import AddProduct from "../components/AddProduct";
 
 const DefaultLayout = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const outletContext = { setShowLogin };
+  const [showAddProduct, setShowAddProduct] = useState(false);
+  const outletContext = { setShowLogin, setShowAddProduct };
 
   return (
     <>
       <Toaster />
+
       {showLogin && <Login setShowLogin={setShowLogin} />}
 
       {showMobileMenu && (
@@ -23,10 +26,13 @@ const DefaultLayout = () => {
         />
       )}
 
+      {showAddProduct && <AddProduct setShowAddProduct={setShowAddProduct} />}
+
       <Navbar
         setShowLogin={setShowLogin}
         setShowMobileMenu={setShowMobileMenu}
       />
+
       <Outlet context={outletContext} />
       <Footer />
     </>

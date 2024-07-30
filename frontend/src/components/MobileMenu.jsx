@@ -79,15 +79,17 @@ const MobileMenu = ({ setShowLogin, setShowMobileMenu }) => {
           About Us
         </NavLink>
 
-        <NavLink
-          to="/dashboard"
-          className="text-light hover:text-primary"
-          onClick={() => {
-            setShowMobileMenu(false);
-          }}
-        >
-          Dashboard
-        </NavLink>
+        {isAuthenticated && (
+          <NavLink
+            to="/dashboard"
+            className="text-light hover:text-primary"
+            onClick={() => {
+              setShowMobileMenu(false);
+            }}
+          >
+            Dashboard
+          </NavLink>
+        )}
 
         <NavLink
           to="/cart"

@@ -1,11 +1,18 @@
 import { FaArrowLeft } from "react-icons/fa6";
-import { Link, Navigate, NavLink, Outlet } from "react-router-dom";
+import {
+  Link,
+  Navigate,
+  NavLink,
+  Outlet,
+  useOutletContext,
+} from "react-router-dom";
 
 const Dashboard = () => {
   const isAuthenticated = JSON.parse(localStorage.getItem("isAuthenticated"));
   const user = JSON.parse(localStorage.getItem("user"));
   const isAdmin = user ? Boolean(user.isAdmin) : false;
-  const outletContext = { isAdmin };
+  const { setShowAddProduct } = useOutletContext();
+  const outletContext = { isAdmin, setShowAddProduct };
 
   return (
     <>
