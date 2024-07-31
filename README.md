@@ -9,7 +9,7 @@ Final project for Web Technology II. A online electronics shop for Apple product
 - BIT 500/078 - Roman Kutuwo
 - BIT 506/078 - Sanwor Prasad Rajbhandari
 
-### Technologies used
+## Technologies used
 
 - **Front-End**
 
