@@ -16,6 +16,7 @@ const Cart = () => {
   const deliveryCost = totalItems === 0 ? 0 : 110;
   const [promoCodeValue, setPromoCodeValue] = useState("");
   const [promoCodeCount, setPromoCodeCount] = useState(0);
+  let cartInfo = {};
   const promocode = "kanjus";
 
   function handlePromoCode() {
@@ -57,12 +58,38 @@ const Cart = () => {
       const user = JSON.parse(localStorage.getItem("user"));
 
       if (isAuthenticated) {
+        cartInfo = {
+          products: cartItems,
+          totalItems: totalItems,
+          subtotal: subtotal,
+          deliveryCost: deliveryCost,
+          totalPrice: totalPrice,
+        };
         setCartItems({});
         localStorage.removeItem("cartItems");
         setPromoCodeCount(0);
         toast.success(`${user.fullName}, Your order has been placed`, {
           style: toastStyle,
         });
+
+        // Send cart info to backend
+        fetch("/api/orders/add", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId: JSON.parse(localStorage.getItem("user")).id,
+            cartInfo,
+          }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       } else {
         setShowLogin(true);
         toast("Login to continue shopping", {

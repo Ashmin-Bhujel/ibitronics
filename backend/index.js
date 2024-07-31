@@ -3,6 +3,7 @@ import "dotenv/config";
 import cors from "cors";
 import { productsRouter } from "./routes/productsRouter.js";
 import { usersRouter } from "./routes/usersRouter.js";
+import { ordersRouter } from "./routes/ordersRouter.js";
 
 // App config
 const port = process.env.PORT || 5000;
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 // API endpoints
 app.use("/api/products", productsRouter);
 app.use("/api/users", usersRouter);
+app.use("/api/orders", ordersRouter);
 
 app.get("/", (req, res) => {
   res.send("Hello from server of iBitronics.");
