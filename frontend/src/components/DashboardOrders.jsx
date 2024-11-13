@@ -50,9 +50,11 @@ const DashboardOrders = () => {
       </h1>
 
       <div className="flex flex-col items-center justify-center gap-4">
-        {orders.map((order) => (
-          <Order key={order.id} order={order} />
-        ))}
+        {orders.length !== 0 && Array.isArray(orders) ? (
+          orders.map((order) => <Order key={order.id} order={order} />)
+        ) : (
+          <p>No Orders</p>
+        )}
       </div>
     </>
   );

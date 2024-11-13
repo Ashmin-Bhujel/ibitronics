@@ -14,9 +14,11 @@ const DashboardUsers = () => {
       <h1 className="mb-8 text-2xl font-semibold">All Users</h1>
 
       <div className="flex flex-col items-center justify-center gap-4">
-        {users.map((user) => (
-          <User key={user.id} user={user} />
-        ))}
+        {users.length !== 0 && Array.isArray(users) ? (
+          users.map((user) => <User key={user.id} user={user} />)
+        ) : (
+          <p>No Users</p>
+        )}
       </div>
     </>
   );

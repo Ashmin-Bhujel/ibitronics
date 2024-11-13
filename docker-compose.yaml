@@ -1,0 +1,23 @@
+services:
+
+  nginx-server:
+    image: nginx
+    volumes:
+      - ~/dev/server:/usr/share/nginx/html
+    ports:
+      - 80:80
+    restart: always
+
+  mysql-server:
+    image: ashminbhujel/ibitronics-mysql
+    ports:
+      - 3306:3306
+    restart: always
+
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - 8080:80
+    links:
+      - mysql-server:db
+    restart: always

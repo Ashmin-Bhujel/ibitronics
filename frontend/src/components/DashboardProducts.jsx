@@ -22,7 +22,7 @@ const DashboardProducts = () => {
                   <DashboardProduct key={product.id} product={product} />
                 ))
               ) : (
-                <h1 className="text-center">No products</h1>
+                <p className="text-center">No products</p>
               )}
             </div>
           </div>
