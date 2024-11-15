@@ -3,6 +3,7 @@ services:
   nginx-server:
     image: nginx
     volumes:
+      # Give appropriate location for the volume 
       - ~/dev/server:/usr/share/nginx/html
     ports:
       - 80:80
